@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "status": "scraping",
+    "completed": 0,
+    "total": 1,
+    "creditsUsed": 1,
+    "expiresAt": "2025-05-26T08:45:59.000Z",
+    "next": "https://9.134.132.205:3002/v1/crawl/d6f85234-003c-44d9-8d36-8034495e4d7f?skip=0",
+    "data": []
+}
