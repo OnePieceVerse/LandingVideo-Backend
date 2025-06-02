@@ -9,6 +9,12 @@ from src.config.settings import CRAWLER_API_BASE_URL
 
 logger = logging.getLogger(__name__)
 
+# 禁用所有代理的配置
+DISABLE_PROXIES = {
+    'http': None,
+    'https': None
+}
+
 async def crawl_url(url: str, limit: int = 2000) -> Dict[str, Any]:
     """
     向爬虫API发送爬取请求
@@ -38,7 +44,8 @@ async def crawl_url(url: str, limit: int = 2000) -> Dict[str, Any]:
             f"{CRAWLER_API_BASE_URL}/crawl",
             headers={"Content-Type": "application/json"},
             json=payload,
-            timeout=30
+            timeout=30,
+            proxies=DISABLE_PROXIES  # 禁用代理
         )
         
         if response.status_code == 200:
@@ -80,7 +87,11 @@ async def get_crawl_result(result_url: str) -> Dict[str, Any]:
     
     while True:
         try:
-            response = requests.get(result_url, timeout=30)
+            response = requests.get(
+                result_url, 
+                timeout=30,
+                proxies=DISABLE_PROXIES  # 禁用代理
+            )
             
             if response.status_code == 200:
                 data = response.json()

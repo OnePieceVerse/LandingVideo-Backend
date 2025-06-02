@@ -75,8 +75,14 @@ python main.py
 
 1. URL爬取和处理
 ```
-GET /api/v1/text/urlCrawl?url={url}
+POST /api/v1/text/urlCrawl?url={url}
 ```
+
+测试：
+```
+nohup python3 main.py > logs/app.log 2>&1 &
+```
+
 
 2. 健康检查
 ```
