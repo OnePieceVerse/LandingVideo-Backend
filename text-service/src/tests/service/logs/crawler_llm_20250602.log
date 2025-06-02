@@ -1,0 +1,27 @@
+2025-06-02 17:41:59,137 [INFO] 启动URL爬取和处理服务在 0.0.0.0:8000...
+2025-06-02 17:41:59,155 [INFO] Started server process [49583]
+2025-06-02 17:41:59,155 [INFO] Waiting for application startup.
+2025-06-02 17:41:59,155 [INFO] Application startup complete.
+2025-06-02 17:41:59,155 [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-06-02 17:42:03,300 [INFO] [req_1748857323300] 开始处理URL: https://cfm.qq.com/web201801/detail.shtml?docid=18193320012779363519
+2025-06-02 17:42:03,300 [INFO] [req_1748857323300] 步骤1/4: 发送爬取请求
+2025-06-02 17:42:03,300 [INFO] 开始爬取URL: https://cfm.qq.com/web201801/detail.shtml?docid=18193320012779363519
+2025-06-02 17:42:03,300 [INFO] 发送请求到: http://9.134.132.205:3002/v1/crawl
+2025-06-02 17:42:04,097 [INFO] 爬取请求成功，任务ID: 01e9528b-f11c-4dda-9466-fc6da0d04e86
+2025-06-02 17:42:04,098 [INFO] [req_1748857323300] 步骤2/4: 获取爬取结果
+2025-06-02 17:42:04,100 [INFO] 开始获取爬取结果，URL: http://9.134.132.205:3002/v1/crawl/01e9528b-f11c-4dda-9466-fc6da0d04e86
+2025-06-02 17:42:05,600 [INFO] 爬取任务已完成
+2025-06-02 17:42:05,601 [INFO] [req_1748857323300] 步骤3/4: 使用OpenAI处理数据
+2025-06-02 17:42:05,602 [INFO] 开始使用OpenAI moonshot-v1-8k 处理数据
+2025-06-02 17:42:05,696 [INFO] 尝试 1/3: 发送请求到OpenAI API
+2025-06-02 17:42:36,245 [INFO] HTTP Request: POST https://api.moonshot.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-02 17:42:36,261 [INFO] 收到OpenAI响应，长度: 2380 字符
+2025-06-02 17:42:36,261 [INFO] 成功解析JSON响应
+2025-06-02 17:42:36,262 [INFO] [req_1748857323300] 步骤4/4: 格式化API响应
+2025-06-02 17:42:36,262 [INFO] 格式化API响应
+2025-06-02 17:42:36,262 [INFO] [req_1748857323300] URL处理完成，总耗时: 32.96 秒
+2025-06-02 17:42:36,266 [INFO] 127.0.0.1:52294 - "GET /api/v1/text/urlCrawl?url=https://cfm.qq.com/web201801/detail.shtml?docid=18193320012779363519 HTTP/1.1" 200
+2025-06-02 18:21:08,526 [INFO] Shutting down
+2025-06-02 18:21:08,630 [INFO] Waiting for application shutdown.
+2025-06-02 18:21:08,637 [INFO] Application shutdown complete.
+2025-06-02 18:21:08,639 [INFO] Finished server process [49583]
