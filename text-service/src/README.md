@@ -78,8 +78,7 @@ python main.py
 POST /api/v1/text/urlCrawl?url={url}
 ```
 
-测试：
-
+测试 curl：
 ```
 curl -X POST http://localhost:8008/api/v1/text/urlCrawl \
   -H "Content-Type: application/json" \
@@ -88,6 +87,7 @@ curl -X POST http://localhost:8008/api/v1/text/urlCrawl \
   }'
 ```
 
+启动
 ```
 nohup python3 main.py > logs/app.log 2>&1 &
 ```
@@ -117,6 +117,7 @@ GET /health
 - 重试机制
 - 超时控制
 - 详细的错误日志
+- 包括成本计算
 
 ## 许可证
 

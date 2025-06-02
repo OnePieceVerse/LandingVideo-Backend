@@ -96,6 +96,7 @@ Markdown内容如下:
             cost = (input_tokens / 1000000 * INPUT_PRICE + 
                    output_tokens / 1000000 * OUTPUT_PRICE)
             logger.info(f"Token使用 - 输入: {input_tokens}, 输出: {output_tokens}")
+
             logger.info(f"预估成本: ¥{cost:.4f}")
             
             try:
