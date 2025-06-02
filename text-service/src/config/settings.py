@@ -14,7 +14,7 @@ RETRY_DELAY = 2
 
 # 服务配置
 SERVICE_HOST = "0.0.0.0"
-SERVICE_PORT = 8000
+SERVICE_PORT = 8008
 
 # 爬虫服务配置
 CRAWLER_API_IP = os.getenv("CRAWLER_API_IP", "localhost")
