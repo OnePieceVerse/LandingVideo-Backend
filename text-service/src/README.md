@@ -79,6 +79,15 @@ POST /api/v1/text/urlCrawl?url={url}
 ```
 
 测试：
+
+```
+curl -X POST http://localhost:8008/api/v1/text/urlCrawl \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://cfm.qq.com/web201801/detail.shtml?docid=5701232412837208438"
+  }'
+```
+
 ```
 nohup python3 main.py > logs/app.log 2>&1 &
 ```
