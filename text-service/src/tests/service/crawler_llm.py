@@ -223,7 +223,7 @@ async def process_with_openai(crawl_result: Dict[str, Any]) -> Dict[str, Any]:
     "data": [
         {{
             "text": "文本段落1",
-            "materiels": [
+            "materials": [
                 "https://example.com/image1.jpg",
                 "https://example.com/image2.jpg",
                 "https://example.com/image3.jpg"
@@ -231,14 +231,14 @@ async def process_with_openai(crawl_result: Dict[str, Any]) -> Dict[str, Any]:
         }},
         {{
             "text": "文本段落2",
-            "materiels": [
+            "materials": [
                 "https://example.com/image4.jpg",
                 "https://example.com/image5.jpg"
             ]
         }},
         {{
             "text": "文本段落3",
-            "materiels": [
+            "materials": [
                 "https://example.com/image6.jpg"
             ]
         }}
@@ -246,8 +246,8 @@ async def process_with_openai(crawl_result: Dict[str, Any]) -> Dict[str, Any]:
 }}
 
 重要说明：
-- 一个文本段落可以对应多张图片，"materiels"必须是数组
-- 如果一段文本有多张相关图片，请将所有相关图片URL都放入该文本的"materiels"数组中
+- 一个文本段落可以对应多张图片，"materials"必须是数组
+- 如果一段文本有多张相关图片，请将所有相关图片URL都放入该文本的"materials"数组中
 - 如果无法确定某张图片属于哪段文本，可以将其分配给最近的文本段落
 - 过滤掉无意义的文本（如单个标点、符号等）
 - 删除页面的导航链接、页脚信息等无关内容
@@ -353,9 +353,9 @@ def format_api_response(processed_data: Dict[str, Any]) -> Dict[str, Any]:
     # 遍历处理后的数据
     for item in processed_data.get("data", []):
         text = item.get("text", "")
-        materials = item.get("materiels", [])
+        materials = item.get("materials", [])
         
-        # 确保materiels是列表
+        # 确保materials是列表
         if not isinstance(materials, list):
             materials = [materials] if materials else []
         
@@ -366,7 +366,7 @@ def format_api_response(processed_data: Dict[str, Any]) -> Dict[str, Any]:
         # 保持材料作为一个列表
         api_data.append({
             "text": text,
-            "materiels": materials
+            "materials": materials
         })
     
     # 如果没有数据，返回错误响应

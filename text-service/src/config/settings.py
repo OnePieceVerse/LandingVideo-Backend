@@ -17,7 +17,7 @@ SERVICE_HOST = "0.0.0.0"
 SERVICE_PORT = 8008
 
 # 爬虫服务配置
-CRAWLER_API_IP = os.getenv("CRAWLER_API_IP", "localhost")
+CRAWLER_API_IP = os.getenv("CRAWLER_API_IP", "9.134.132.205")
 logger.info(f"从环境变量读取到的 CRAWLER_API_IP: {CRAWLER_API_IP}")
 logger.info(f"环境变量中的所有值: {dict(os.environ)}")
 

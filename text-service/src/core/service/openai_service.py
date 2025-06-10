@@ -54,7 +54,7 @@ async def process_with_openai(crawl_result: Dict[str, Any], request_id: str) -> 
     "data": [
         {{
             "text": "文本段落1",
-            "materiels": ["图片URL1", "图片URL2"]
+            "materials": ["图片URL1", "图片URL2"]
         }}
     ]
 }}
@@ -139,7 +139,7 @@ def format_api_response(processed_data: Dict[str, Any]) -> Dict[str, Any]:
     api_data = []
     for item in processed_data.get("data", []):
         text = item.get("text", "")
-        materials = item.get("materiels", [])
+        materials = item.get("materials", [])
         
         if not isinstance(materials, list):
             materials = [materials] if materials else []
@@ -149,7 +149,7 @@ def format_api_response(processed_data: Dict[str, Any]) -> Dict[str, Any]:
             
         api_data.append({
             "text": text,
-            "materiels": materials
+            "materials": materials
         })
     
     if not api_data:
