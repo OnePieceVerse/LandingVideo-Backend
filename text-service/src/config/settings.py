@@ -1,9 +1,4 @@
 import os
-import logging
-
-# 配置基础日志
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 # OpenAI API 配置
 API_KEY = os.getenv("OpenAI_API_KEY")
@@ -18,18 +13,26 @@ SERVICE_PORT = 8008
 
 # 爬虫服务配置
 CRAWLER_API_IP = os.getenv("CRAWLER_API_IP", "localhost")
-logger.info(f"从环境变量读取到的 CRAWLER_API_IP: {CRAWLER_API_IP}")
-logger.info(f"环境变量中的所有值: {dict(os.environ)}")
-
 CRAWLER_API_PORT = "3002"
 CRAWLER_API_BASE_URL = f"http://{CRAWLER_API_IP}:{CRAWLER_API_PORT}/v1"
-logger.info(f"最终构建的 CRAWLER_API_BASE_URL: {CRAWLER_API_BASE_URL}")
 
 # 日志配置
-LOG_DIR = "logs"
-LOG_FORMAT = "%(asctime)s [%(levelname)s] %(message)s"
-LOG_LEVEL = "INFO"
+LOG_DIR = os.getenv("LOG_DIR", "logs")
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
+LOG_MAX_BYTES = int(os.getenv("LOG_MAX_BYTES", "10485760"))  # 10MB
+LOG_BACKUP_COUNT = int(os.getenv("LOG_BACKUP_COUNT", "5"))
+LOG_ENABLE_JSON = os.getenv("LOG_ENABLE_JSON", "true").lower() == "true"
+LOG_ENABLE_CONSOLE_COLORS = os.getenv("LOG_ENABLE_CONSOLE_COLORS", "true").lower() == "true"
 
 # Token价格配置（每百万token）
 INPUT_PRICE = 2.0  # ¥2/M tokens
-OUTPUT_PRICE = 10.0  # ¥10/M tokens 
+OUTPUT_PRICE = 10.0  # ¥10/M tokens
+
+# 性能监控配置
+ENABLE_PERFORMANCE_LOGGING = os.getenv("ENABLE_PERFORMANCE_LOGGING", "true").lower() == "true"
+SLOW_REQUEST_THRESHOLD = float(os.getenv("SLOW_REQUEST_THRESHOLD", "1000.0"))  # 毫秒
+
+# 请求日志配置
+LOG_REQUEST_BODY = os.getenv("LOG_REQUEST_BODY", "true").lower() == "true"
+LOG_RESPONSE_BODY = os.getenv("LOG_RESPONSE_BODY", "false").lower() == "true"
+MAX_BODY_LOG_SIZE = int(os.getenv("MAX_BODY_LOG_SIZE", "1000"))  # 字符 
